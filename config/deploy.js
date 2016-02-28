@@ -4,10 +4,6 @@ module.exports = function(deployTarget) {
   var ENV = {
     build: {},
     // include other plugin configuration that applies to all deploy targets here
-    git: {
-      repo: 'git@github.com:oliw/oliverwilkie-ember.git',
-      branch: 'gh-pages'
-    }
   };
 
   if (deployTarget === 'development') {
@@ -22,6 +18,10 @@ module.exports = function(deployTarget) {
 
   if (deployTarget === 'production') {
     ENV.build.environment = 'production';
+    ENV.build.git = {
+      repo: 'git@github.com:oliw/oliw.github.io.git',
+      branch: 'master'
+    }
     // configure other plugins for production deploy target here
   }
 
